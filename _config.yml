@@ -1,0 +1,25 @@
+# user variables, change this to make custom site.
+
+name: Lemma
+desc: Yet another simple theme for Jekyll.
+author: neizod
+
+
+# system variables, do not change unless you knew what's it does.
+
+highlighter: pygments
+markdown: redcarpet
+redcarpet:
+  extensions: ["tables"]
+
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
