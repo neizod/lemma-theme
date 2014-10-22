@@ -8,54 +8,9 @@
   <body>
     <div class="container">
       <div class="row">
-
-        <div class="col-xs-12 col-sm-4 col-md-3">
-          <h2>{{ site.name }}</h2>
-          <hr />
-          <h3>Blog</h3>
-          <ul>
-            <li><a href="#">archive</a></li>
-            <li><a href="#">tags</a></li>
-          </ul>
-          <hr />
-          <h3>Everything Else</h3>
-          <ul>
-            <li><a href="#">Projects</a></li>
-            <li><a href="#">Gallery</a></li>
-          </ul>
-        </div>
-
-        <div class="col-xs-12 col-sm-8 col-md-6">
-          <h1>{{ page.title }}</h1>
-          {{ content }}
-        </div>
-
-        <div class="col-xs-12 col-sm-4 col-md-3">
-          <h3>Recent Posts</h3>
-          <ol>
-            <li><a href="#">latest blog</a></li>
-            <li><a href="#">older than latest</a></li>
-            <li><a href="#">much more older</a></li>
-          </ol>
-          <hr />
-          <h3>Navigation</h3>
-          <div class="container-fluid">
-            <div class="col-xs-6">
-              <a href="#">&lt; next</a>
-            </div>
-            <div class="col-xs-6">
-              <a href="#">prev &gt;</a>
-            </div>
-          </div>
-          <hr />
-          <h3>Share This</h3>
-          <ul>
-            <li><a href="#">facebook</a></li>
-            <li><a href="#">twitter</a></li>
-            <li><a href="#">etc.</a></li>
-          </ul>
-        </div>
-
+        {% include left.html %}
+        {% include main.html %}
+        {% include right.html %}
       </div>
     </div>
     {% include scripts.html %}
