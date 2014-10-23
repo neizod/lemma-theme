@@ -3,6 +3,7 @@
 name: Lemma
 desc: Yet another simple theme for Jekyll.
 author: neizod
+baseurl: /lemma-theme
 
 
 # system variables, do not change unless you knew what's it does.
