@@ -24,3 +24,7 @@ defaults:
       type: "posts"
     values:
       layout: "post"
+
+sass:
+  sass_dir: _sass
+  style: compressed
