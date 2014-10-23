@@ -10,12 +10,24 @@ div.figure
     p img
         max-width: 100%
 
+body
+    background: #222
+
+#leftbar, #rightbar
+    background: #ddd
+
+#mainmatter
+    background: #fff
+
 #menu-toggle
     position: absolute
     top:   $general-padding
     right: $general-padding
 
 
-@media (max-width: $screen-xs-max)
-    #leftbar
-        background: #ddd
+@media (min-width: $screen-sm-min)
+    html, body, div.container, div.row
+        height: 100%
+    #leftbar, #rightbar, #mainmatter
+        height: 100%
+        overflow: auto
