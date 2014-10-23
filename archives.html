@@ -1,0 +1,19 @@
+---
+title: Blog Archives
+---
+
+<ul class="list-unstyled">
+  {% for post in site.posts %}
+  <li>
+    <h3>
+      <small>
+        {{ post.date | date_to_string }}
+      </small>
+      <a href="{{ site.baseurl }}{{ post.url }}">
+        {{ post.title }}
+      </a>
+    </h3>
+    <p>{{ post.excerpt }}</p>
+  </li>
+  {% endfor %}
+</ul>
