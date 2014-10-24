@@ -1,11 +1,16 @@
 ---
 ---
 
-tag_toggle = (it) ->
-    heading = $(it).parent()
-    heading.find('span.glyphicon').toggleClass('glyphicon-chevron-down')
-    heading.find('span.glyphicon').toggleClass('glyphicon-chevron-up')
-    heading.find('ul').toggleClass('hidden')
+correct_badge_position = () ->
+    $('ul li span.badge').each (_, badge) ->
+        parent = $(badge).parent()
+        $(badge).detach().prependTo(parent)
+
+list_toggle = (it) ->
+    parent = $(it).parent()
+    parent.find('span.glyphicon:first').toggleClass('glyphicon-chevron-down')
+    parent.find('span.glyphicon:first').toggleClass('glyphicon-chevron-up')
+    parent.find('ul:first').toggleClass('hidden')
 
 rightbar_change_visible = () ->
     $('#rightbar').is(':visible') != $('#rightbar').data('prev-visible')
@@ -20,6 +25,7 @@ $(document).ready ->
     $('table').addClass('table')
     $('#menubar').addClass('hidden-xs')
     rightbar_make_position()
+    correct_badge_position()
 
     $('img').each (_, img) ->
         alt = $(img).attr('alt')
@@ -28,8 +34,8 @@ $(document).ready ->
                   .after($('<p>').html($('<em>').html(alt)))
                   .wrap('<p>')
 
-    $('.tag-toggle').click ->
-        tag_toggle(this)
+    $('.list-toggle').click ->
+        list_toggle(this)
 
     $('#menu-toggle').click ->
         $('#menubar').toggleClass('hidden-xs')
