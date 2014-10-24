@@ -6,14 +6,15 @@ title: Blog Archives
   {% for post in site.posts %}
   <li>
     <h3>
-      <small>
+      <span class="label label-info">
         {{ post.date | date_to_string }}
-      </small>
+      </span>
+      &nbsp;
       <a href="{{ site.baseurl }}{{ post.url }}">
         {{ post.title }}
       </a>
     </h3>
-    <p>{{ post.excerpt }}</p>
+    {{ post.excerpt }}
   </li>
   {% endfor %}
 </ul>
