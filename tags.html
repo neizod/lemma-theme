@@ -1,0 +1,21 @@
+---
+title: Blog Tags
+---
+
+<ul class="list-group">
+{% for tag in site.tags %}
+  <li class="list-group-item">
+    <span class="badge">{{ tag[1].size }}</span>
+    <small><span class="glyphicon glyphicon-chevron-down"></span></small>
+    <a class="tag-toggle" href="#">{{ tag[0] }}</a>
+    <ul class="list-unstyled hidden">
+    {% for post in tag[1] %}
+      <li>
+        <span class="label label-info">{{ post.date | date_to_string }}</span>
+        <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+      </li>
+    {% endfor %}
+    </ul>
+  </li>
+{% endfor %}
+</ul>

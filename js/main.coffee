@@ -1,6 +1,12 @@
 ---
 ---
 
+tag_toggle = (it) ->
+    heading = $(it).parent()
+    heading.find('span.glyphicon').toggleClass('glyphicon-chevron-down')
+    heading.find('span.glyphicon').toggleClass('glyphicon-chevron-up')
+    heading.find('ul').toggleClass('hidden')
+
 rightbar_change_visible = () ->
     $('#rightbar').is(':visible') != $('#rightbar').data('prev-visible')
 
@@ -21,6 +27,9 @@ $(document).ready ->
             $(img).wrap($('<div>').addClass('figure'))
                   .after($('<p>').html($('<em>').html(alt)))
                   .wrap('<p>')
+
+    $('.tag-toggle').click ->
+        tag_toggle(this)
 
     $('#menu-toggle').click ->
         $('#menubar').toggleClass('hidden-xs')
