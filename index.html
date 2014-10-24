@@ -1,9 +1,9 @@
 ---
-title: Blog Archives
+title: Blog Posts
 ---
 
 <ul class="list-unstyled">
-  {% for post in site.posts %}
+  {% for post in paginator.posts %}
   <li>
     <h3>
       <span class="label label-info">
@@ -18,3 +18,7 @@ title: Blog Archives
   </li>
   {% endfor %}
 </ul>
+<hr />
+<div class="text-center">
+  {% include nav_paginator.html %}
+</div>
