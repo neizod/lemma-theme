@@ -5,10 +5,16 @@
 $general-padding: 15px
 
 
+div.spacing
+    color: rgba(255,255,255,0)
+    background: rgba(255,255,255,0)
+    z-index: -1
+
 div.figure
     text-align: center
     p img
         max-width: 100%
+
 
 body
     background: #222
@@ -25,6 +31,12 @@ body
     top:   $general-padding
     right: $general-padding
 
+
+@media (max-width: $screen-xs-max)
+    #leftbar
+        background: #ddd
+        position: fixed
+        z-index: 1
 
 @media (min-width: $screen-sm-min)
     html, body, div.container
