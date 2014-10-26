@@ -1,6 +1,11 @@
 ---
 ---
 
+correct_fixed_position_width = () ->
+    $('#leftbar').css('width', $('#leftbar-dummy').css('width'))
+    $('#rightbar').css('width', $('#rightbar-dummy').css('width'))
+    $('#rightbar').css('left', $('#rightbar-dummy').offset()['left'])
+
 correct_badge_position = () ->
     $('ul li span.badge').each (_, badge) ->
         parent = $(badge).parent()
@@ -25,6 +30,7 @@ $(document).ready ->
     $('table').addClass('table')
     $('#menubar').addClass('hidden-xs')
     rightbar_make_position()
+    correct_fixed_position_width()
     correct_badge_position()
 
     $('img').each (_, img) ->
@@ -41,5 +47,6 @@ $(document).ready ->
         $('#menubar').toggleClass('hidden-xs')
 
     $(window).resize ->
+        correct_fixed_position_width()
         if rightbar_change_visible()
             rightbar_make_position()
