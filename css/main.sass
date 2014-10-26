@@ -13,8 +13,9 @@ div.figure
 body
     background: #222
 
-#leftbar, #rightbar
+#main-row
     background: #ddd
+    min-height: 100%
 
 #mainmatter
     background: #fff
@@ -26,8 +27,7 @@ body
 
 
 @media (min-width: $screen-sm-min)
-    html, body, div.container, div.row
+    html, body, div.container
         height: 100%
-    #leftbar, #rightbar, #mainmatter
-        height: 100%
-        overflow: auto
+    #leftbar-in, #rightbar-in
+        position: fixed

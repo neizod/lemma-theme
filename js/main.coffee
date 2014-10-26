@@ -17,8 +17,8 @@ rightbar_change_visible = () ->
 
 rightbar_make_position = () ->
     $('#rightbar').data('prev-visible', $('#rightbar').is(':visible'))
-    dest = if $('#rightbar').is(':visible') then '#rightbar' else '#leftbar'
-    $('#menubar-movable').detach().appendTo(dest)
+    dest = if $('#rightbar').is(':visible') then '#rightbar' else '#leftbar-in'
+    $('#rightbar-in').detach().appendTo(dest)
 
 
 $(document).ready ->
@@ -34,10 +34,12 @@ $(document).ready ->
                   .after($('<p>').html($('<em>').html(alt)))
                   .wrap('<p>')
 
-    $('.list-toggle').click ->
+    $('.list-toggle').click (event) ->
+        event.preventDefault()
         list_toggle(this)
 
-    $('#menu-toggle').click ->
+    $('#menu-toggle').click (event) ->
+        event.preventDefault()
         $('#menubar').toggleClass('hidden-xs')
 
     $(window).resize ->
