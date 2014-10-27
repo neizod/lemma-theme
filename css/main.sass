@@ -3,8 +3,9 @@
 @import "bootstrap"
 @import "font-awesome"
 
-$general-padding: 15px
 
+a, a:hover
+    text-decoration: none
 
 div.spacing
     color: rgba(255,255,255,0)
@@ -27,10 +28,13 @@ body
 #leftbar, #rightbar
     background: #ddd
 
-#menu-toggle
-    position: absolute
-    top:   $general-padding
-    right: $general-padding
+#menubar ul li
+    h4
+        line-height: 1.5
+        a
+            display: block
+        a:hover
+            background: rgba(0,0,0,0.1)
 
 
 @media (max-width: $screen-xs-max)
