@@ -1,0 +1,31 @@
+{% capture pathtype %}{{ page.path | split: '/' | first }}{% endcapture %}
+{% if pathtype == '_posts' %}
+<h3>Blog Navigation</h3>
+<div class="container-fluid">
+  <div class="col-xs-6">
+    <a href="#">&lt; prev</a>
+  </div>
+  <div class="col-xs-6">
+    <a href="#">next &gt;</a>
+  </div>
+</div>
+<hr />
+{% elsif pathtype == 'page' or page.url == '/index.html' %}
+<h3>Blog Pagination</h3>
+<div class="container-fluid">
+  <div class="col-xs-6">
+  {% if paginator.previous_page %}
+    <a href="{{ site.baseurl }}{{ paginator.previous_page_path }}">
+      &lt; prev
+    </a>
+  {% endif %}
+  </div>
+  <div class="col-xs-6">
+  {% if paginator.next_page %}
+    <a href="{{ site.baseurl }}{{ paginator.next_page_path }}">
+      next &gt;
+    </a>
+  {% endif %}
+  </div>
+</div>
+{% endif %}

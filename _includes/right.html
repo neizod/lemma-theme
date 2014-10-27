@@ -1,54 +1,9 @@
 <div class="col-xs-12 hidden-sm col-md-3" id="rightbar">
   <div id="rightbar-movable">
-    <div class="hidden-sm">
-      <h3>Recent Posts</h3>
-      <ol>
-        <li><a href="#">latest blog</a></li>
-        <li><a href="#">older than latest</a></li>
-        <li><a href="#">much more older</a></li>
-      </ol>
-    </div>
+    {% include recent.html %}
     <hr />
-    {% capture pathtype %}{{ page.path | split: '/' | first }}{% endcapture %}
-    {% if pathtype == '_posts' %}
-    <h3>Blog Navigation</h3>
-    <div class="container-fluid">
-      <div class="col-xs-6">
-        <a href="#">&lt; prev</a>
-      </div>
-      <div class="col-xs-6">
-        <a href="#">next &gt;</a>
-      </div>
-    </div>
-    <hr />
-    {% elsif pathtype == 'page' or page.url == '/index.html' %}
-    <h3>Blog Pagination</h3>
-    <div class="container-fluid">
-      <div class="col-xs-6">
-      {% if paginator.previous_page %}
-        <a href="{{ site.baseurl }}{{ paginator.previous_page_path }}">
-          &lt; prev
-        </a>
-      {% endif %}
-      </div>
-      <div class="col-xs-6">
-      {% if paginator.next_page %}
-        <a href="{{ site.baseurl }}{{ paginator.next_page_path }}">
-          next &gt;
-        </a>
-      {% endif %}
-      </div>
-    </div>
-    {% endif %}
-    <div class="text-center">
-      <h3>Share This</h3>
-      <ul class="list-inline">
-        <li><a href="#"><i class="fa fa-2x fa-facebook-square"></i></a></li>
-        <li><a href="#"><i class="fa fa-2x fa-twitter-square"></i></a></li>
-        <li><a href="#"><i class="fa fa-2x fa-pinterest-square"></i></a></li>
-        <li><a href="#"><i class="fa fa-2x fa-google-plus-square"></i></a></li>
-      </ul>
-    </div>
+    {% include nav_quick.html %}
+    {% include share.html %}
   </div>
 </div>
 <div class="spacing col-xs-12 hidden-sm col-md-3" id="rightbar-spacing">
