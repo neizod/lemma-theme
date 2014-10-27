@@ -1,6 +1,28 @@
 ---
 ---
 
+make_recent_date = () ->
+    $('#recent-list span.label').each (_, label) ->
+        seconds = (Date.now() - Date.parse($(label).data('date'))) / 1000
+        day = Math.floor(seconds / 60 / 60 / 24)
+        month = Math.floor(seconds / 60 / 60 / 24 / 30)
+        year = Math.floor(seconds / 60 / 60 / 24 / 365)
+        if year > 1
+            sentence = "#{year} years ago"
+        else if year == 1
+            sentence = 'a year ago'
+        else if month > 1
+            sentence = "#{month} months ago"
+        else if month == 1
+            sentence = 'a month ago'
+        else if day > 1
+            sentence = "#{day} days ago"
+        else if day == 1
+            sentence = "yesterday"
+        else
+            sentence = "today"
+        $(label).html(sentence)
+
 correct_fixed_position_width = () ->
     $('#leftbar').css('width', $('#leftbar-spacing').css('width'))
     $('#rightbar').css('width', $('#rightbar-spacing').css('width'))
@@ -29,9 +51,11 @@ rightbar_make_position = () ->
 $(document).ready ->
     $('table').addClass('table')
     $('#menubar').addClass('hidden-xs')
+    $('ul ul').css('margin-bottom', 0)
     rightbar_make_position()
     correct_fixed_position_width()
     correct_badge_position()
+    make_recent_date()
 
     $('img').each (_, img) ->
         alt = $(img).attr('alt')
