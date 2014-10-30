@@ -16,6 +16,9 @@ title: Blog Posts
     </h3>
     {{ post.excerpt }}
   </li>
+  {% unless forloop.last %}
+  <hr />
+  {% endunless %}
   {% endfor %}
 </ul>
 <hr />
