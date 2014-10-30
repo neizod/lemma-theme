@@ -55,25 +55,25 @@ monitor_device_mode = () ->
 
 make_roaming_menu = (mode) ->
     if mode == 'xs'
-        $('#roaming-nav-quick').detach().appendTo('#rightbar')
-        $('#roaming-share').detach().appendTo('#rightbar')
+        $('#roaming-nav-quick').detach().appendTo('#rightrow')
+        $('#roaming-share').detach().appendTo('#rightrow')
     else if mode == 'sm'
-        $('#roaming-nav-quick').detach().appendTo('#menubar')
-        $('#roaming-share').detach().appendTo('#menubar')
+        $('#roaming-nav-quick').detach().appendTo('#leftrow')
+        $('#roaming-share').detach().appendTo('#leftrow')
     else
-        $('#roaming-nav-quick').detach().appendTo('#rightbar')
-        $('#roaming-share').detach().appendTo('#rightbar')
+        $('#roaming-nav-quick').detach().appendTo('#rightrow')
+        $('#roaming-share').detach().appendTo('#rightrow')
 
 make_spacing = (mode) ->
     if mode == 'xs'
-        $('#menubar').toggleClass('hidden-xs') if $('#menubar').is(':visible')
+        $('#leftrow').toggleClass('hidden-xs') if $('#leftrow').is(':visible')
         $('#leftbar-spacing').height($('#leftbar').height())
         $('#rightbar-spacing').height($('#rightbar').height())
 
 
 $(document).ready ->
     $('table').addClass('table')
-    $('#menubar').addClass('hidden-xs')
+    $('#leftrow').addClass('hidden-xs')
     $('ul ul').css('margin-bottom', 0)
     correct_fixed_position_width()
     correct_badge_position()
@@ -93,7 +93,7 @@ $(document).ready ->
 
     $('#menu-toggle').click (event) ->
         event.preventDefault()
-        $('#menubar').toggleClass('hidden-xs')
+        $('#leftrow').toggleClass('hidden-xs')
 
     $(window).resize ->
         correct_fixed_position_width()
