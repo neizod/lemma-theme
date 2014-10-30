@@ -47,11 +47,14 @@ check_change_mode = () ->
         return mode
     return null
 
-monitor_roaming_menu = () ->
+monitor_device_mode = () ->
     mode = check_change_mode()
-    if not mode?
-        return
-    else if mode == 'xs'
+    if mode?
+        make_roaming_menu(mode)
+        make_spacing(mode)
+
+make_roaming_menu = (mode) ->
+    if mode == 'xs'
         $('#roaming-nav-quick').detach().appendTo('#rightbar')
         $('#roaming-share').detach().appendTo('#rightbar')
     else if mode == 'sm'
@@ -61,6 +64,12 @@ monitor_roaming_menu = () ->
         $('#roaming-nav-quick').detach().appendTo('#rightbar')
         $('#roaming-share').detach().appendTo('#rightbar')
 
+make_spacing = (mode) ->
+    if mode == 'xs'
+        $('#menubar').toggleClass('hidden-xs') if $('#menubar').is(':visible')
+        $('#leftbar-spacing').height($('#leftbar').height())
+        $('#rightbar-spacing').height($('#rightbar').height())
+
 
 $(document).ready ->
     $('table').addClass('table')
@@ -69,7 +78,7 @@ $(document).ready ->
     correct_fixed_position_width()
     correct_badge_position()
     make_recent_date()
-    monitor_roaming_menu()
+    monitor_device_mode()
 
     $('img').each (_, img) ->
         alt = $(img).attr('alt')
@@ -88,4 +97,4 @@ $(document).ready ->
 
     $(window).resize ->
         correct_fixed_position_width()
-        monitor_roaming_menu()
+        monitor_device_mode()

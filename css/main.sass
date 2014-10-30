@@ -18,8 +18,9 @@ div.figure
         max-width: 100%
 
 
-body
+html, body, div.container
     background: #222
+    height: 100%
 
 #main-row
     background: #fff
@@ -44,13 +45,13 @@ body
 
 
 @media (max-width: $screen-xs-max)
-    #leftbar
+    #leftbar, #rightbar
         position: fixed
         z-index: $zindex-navbar
+    #rightbar
+        bottom: 0
 
 @media (min-width: $screen-sm-min)
-    html, body, div.container
-        height: 100%
     #leftbar, #rightbar
         height: 100%
         overflow: auto
