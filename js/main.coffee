@@ -2,7 +2,7 @@
 ---
 
 make_recent_date = () ->
-    $('#recent-list span.label').each (_, label) ->
+    for label in $('#recent-list span.label')
         seconds = (Date.now() - Date.parse($(label).data('date'))) / 1000
         day = Math.floor(seconds / 60 / 60 / 24)
         month = Math.floor(seconds / 60 / 60 / 24 / 30)
@@ -38,12 +38,12 @@ correct_fixed_position_width = () ->
     $('#rightbar').css('left', $('#rightbar-spacing').offset()['left'])
 
 correct_badge_position = () ->
-    $('ul li span.badge').each (_, badge) ->
+    for badge in $('ul li span.badge')
         parent = $(badge).parent()
         $(badge).detach().prependTo(parent)
 
 wrap_img = () ->
-    $('img').each (_, img) ->
+    for img in $('img')
         alt = $(img).attr('alt')
         if alt?.trim().length
             $(img).wrap($('<div>').addClass('figure'))
