@@ -39,23 +39,37 @@ list_toggle = (it) ->
     parent.find('span.glyphicon:first').toggleClass('glyphicon-chevron-up')
     parent.find('ul:first').toggleClass('hidden')
 
-rightbar_change_visible = () ->
-    $('#rightbar').is(':visible') != $('#rightbar').data('prev-visible')
+check_change_mode = () ->
+    for mode in ['xs', 'sm', 'md']
+        break if $("#device-#{mode}").is(':visible')
+    if $('#device-mode').data('mode') != mode
+        $('#device-mode').data('mode', mode)
+        return mode
+    return null
 
-rightbar_make_position = () ->
-    $('#rightbar').data('prev-visible', $('#rightbar').is(':visible'))
-    dest = if $('#rightbar').is(':visible') then '#rightbar' else '#leftbar'
-    $('#rightbar-movable').detach().appendTo(dest)
+monitor_roaming_menu = () ->
+    mode = check_change_mode()
+    if not mode?
+        return
+    else if mode == 'xs'
+        $('#roaming-nav-quick').detach().appendTo('#rightbar')
+        $('#roaming-share').detach().appendTo('#rightbar')
+    else if mode == 'sm'
+        $('#roaming-nav-quick').detach().appendTo('#menubar')
+        $('#roaming-share').detach().appendTo('#menubar')
+    else
+        $('#roaming-nav-quick').detach().appendTo('#rightbar')
+        $('#roaming-share').detach().appendTo('#rightbar')
 
 
 $(document).ready ->
     $('table').addClass('table')
     $('#menubar').addClass('hidden-xs')
     $('ul ul').css('margin-bottom', 0)
-    rightbar_make_position()
     correct_fixed_position_width()
     correct_badge_position()
     make_recent_date()
+    monitor_roaming_menu()
 
     $('img').each (_, img) ->
         alt = $(img).attr('alt')
@@ -74,5 +88,4 @@ $(document).ready ->
 
     $(window).resize ->
         correct_fixed_position_width()
-        if rightbar_change_visible()
-            rightbar_make_position()
+        monitor_roaming_menu()
