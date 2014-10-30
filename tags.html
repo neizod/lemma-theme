@@ -2,20 +2,38 @@
 title: Blog Tags
 ---
 
-<ul class="list-group">
-{% for tag in site.tags %}
-  <li class="list-group-item">
-    <span class="badge">{{ tag[1].size }}</span>
-    <small><span class="glyphicon glyphicon-chevron-down"></span></small>
-    <a class="list-toggle" href="#">{{ tag[0] }}</a>
-    <ul class="list-unstyled hidden">
-    {% for post in tag[1] %}
-      <li>
-        <span class="label label-info">{{ post.date | date_to_string }}</span>
-        <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+<div class="row-fluid">
+  <div class="col-xs-12 text-center">
+    <p>
+      <div class="btn-group">
+        <button type="button" class="btn btn-default tag-sort" id="sort-alph">
+          sort by alphabet
+        </button>
+        <button type="button" class="btn btn-default tag-sort" id="sort-freq">
+          sort by frequency
+        </button>
+      </div>
+    </p>
+  </div>
+  <div class="col-xs-12">
+    <ul class="list-group" id="tags">
+    {% for tag in site.tags %}
+      <li class="list-group-item">
+        <span class="badge">{{ tag[1].size }}</span>
+        <small><span class="glyphicon glyphicon-chevron-down"></span></small>
+        <a class="list-toggle" href="#">{{ tag[0] }}</a>
+        <ul class="list-unstyled hidden">
+        {% for post in tag[1] %}
+          <li>
+            <span class="label label-info">
+              {{ post.date | date_to_string }}
+            </span>
+            <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+          </li>
+        {% endfor %}
+        </ul>
       </li>
     {% endfor %}
     </ul>
-  </li>
-{% endfor %}
-</ul>
+  </div>
+</div>

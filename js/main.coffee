@@ -23,6 +23,15 @@ make_recent_date = () ->
             sentence = "today"
         $(label).html(sentence)
 
+tag_sort = (button) ->
+    if /freq$/.test($(button).attr('id'))
+        ord = (selector) -> (Number) $(selector).find('.badge').html()
+        cmp = (a, b) -> if ord(a) <= ord(b) then 1 else -1
+    else
+        ord = (selector) -> $(selector).find('a:first').html().toLowerCase()
+        cmp = (a, b) -> if ord(a) > ord(b) then 1 else -1
+    $('ul#tags').html((li for li in $('ul#tags li.list-group-item')).sort(cmp))
+
 correct_fixed_position_width = () ->
     $('#leftbar').css('width', $('#leftbar-spacing').css('width'))
     $('#rightbar').css('width', $('#rightbar-spacing').css('width'))
@@ -86,6 +95,12 @@ $(document).ready ->
             $(img).wrap($('<div>').addClass('figure'))
                   .after($('<p>').html($('<em>').html(alt)))
                   .wrap('<p>')
+
+    $('.tag-sort').click (event) ->
+        event.preventDefault()
+        $('.tag-sort').removeClass('active')
+        $(this).addClass('active')
+        tag_sort(this)
 
     $('.list-toggle').click (event) ->
         event.preventDefault()
