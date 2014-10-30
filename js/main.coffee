@@ -79,13 +79,13 @@ make_roaming_menu = (mode) ->
     else if mode == 'sm'
         $('#roaming-nav-quick').detach().appendTo('#leftrow')
         $('#roaming-share').detach().appendTo('#leftrow')
-        $('#roaming-nav-prev').detach().prependTo('#roaming-nav-quick')
-        $('#roaming-nav-next').detach().appendTo('#roaming-nav-quick')
+        $('#roaming-nav-prev').detach().prependTo('#quick-navrow')
+        $('#roaming-nav-next').detach().appendTo('#quick-navrow')
     else
         $('#roaming-nav-quick').detach().appendTo('#rightrow')
         $('#roaming-share').detach().appendTo('#rightrow')
-        $('#roaming-nav-prev').detach().prependTo('#roaming-nav-quick')
-        $('#roaming-nav-next').detach().appendTo('#roaming-nav-quick')
+        $('#roaming-nav-prev').detach().prependTo('#quick-navrow')
+        $('#roaming-nav-next').detach().appendTo('#quick-navrow')
 
 make_spacing = (mode) ->
     if mode == 'xs'
