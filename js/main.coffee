@@ -42,6 +42,14 @@ correct_badge_position = () ->
         parent = $(badge).parent()
         $(badge).detach().prependTo(parent)
 
+wrap_img = () ->
+    $('img').each (_, img) ->
+        alt = $(img).attr('alt')
+        if alt?.trim().length
+            $(img).wrap($('<div>').addClass('figure'))
+                  .after($('<p>').html($('<em>').html(alt)))
+                  .wrap('<p>')
+
 list_toggle = (it) ->
     parent = $(it).parent()
     parent.find('span.glyphicon:first').toggleClass('glyphicon-chevron-down')
@@ -88,13 +96,8 @@ $(document).ready ->
     correct_badge_position()
     make_recent_date()
     monitor_device_mode()
+    wrap_img()
 
-    $('img').each (_, img) ->
-        alt = $(img).attr('alt')
-        if alt?.trim().length
-            $(img).wrap($('<div>').addClass('figure'))
-                  .after($('<p>').html($('<em>').html(alt)))
-                  .wrap('<p>')
 
     $('.tag-sort').click (event) ->
         event.preventDefault()
@@ -105,6 +108,7 @@ $(document).ready ->
     $('.list-toggle').click (event) ->
         event.preventDefault()
         list_toggle(this)
+        correct_fixed_position_width()
 
     $('#menu-toggle').click (event) ->
         event.preventDefault()
