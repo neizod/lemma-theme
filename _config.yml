@@ -3,6 +3,7 @@
 name: Lemma
 desc: Yet another simple theme for Jekyll.
 author: neizod
+license: MIT License
 
 
 # theme variables, change this to make site looks best.
