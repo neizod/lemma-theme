@@ -20,7 +20,7 @@ title: Blog Tags
     {% for tag in site.tags %}
       <li class="list-group-item">
         <span class="badge">{{ tag[1].size }}</span>
-        <small><span class="glyphicon glyphicon-chevron-down"></span></small>
+        <i class="fa fa-plus-square"></i>
         <a class="list-toggle" href="#">{{ tag[0] }}</a>
         <ul class="list-group hidden">
         {% for post in tag[1] %}

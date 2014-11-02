@@ -52,8 +52,8 @@ wrap_img = () ->
 
 list_toggle = (it) ->
     parent = $(it).parent()
-    parent.find('span.glyphicon:first').toggleClass('glyphicon-chevron-down')
-    parent.find('span.glyphicon:first').toggleClass('glyphicon-chevron-up')
+    parent.find('i.fa:first').toggleClass('fa-plus-square')
+    parent.find('i.fa:first').toggleClass('fa-minus-square')
     parent.find('ul:first').toggleClass('hidden')
 
 check_change_mode = () ->

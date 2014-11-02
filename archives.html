@@ -13,7 +13,7 @@ title: Blog Archives
 
   {% if year != next_year %}
     <li class="list-group-item">
-      <small><span class="glyphicon glyphicon-chevron-down"></span></small>
+      <i class="fa fa-plus-square"></i>
       <a class="list-toggle" href="#">{{ post.date | date: "%Y" }}</a>
       <ul class="list-group hidden">
   {% else %}
@@ -26,7 +26,7 @@ title: Blog Archives
 
   {% if month != next_month or forloop.first %}
     <li class="list-group-item">
-      <small><span class="glyphicon glyphicon-chevron-down"></span></small>
+      <i class="fa fa-plus-square"></i>
       <a class="list-toggle" href="#">{{ post.date | date: "%B" }}</a>
       <ul class="list-group hidden">
   {% else %}
