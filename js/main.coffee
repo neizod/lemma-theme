@@ -25,10 +25,10 @@ make_recent_date = () ->
 
 tag_sort = (button) ->
     if /freq$/.test($(button).attr('id'))
-        ord = (selector) -> (Number) $(selector).find('.badge').html()
+        ord = (selector) -> (Number) $(selector).find('.ord-freq').html()
         cmp = (a, b) -> if ord(a) <= ord(b) then 1 else -1
     else
-        ord = (selector) -> $(selector).find('a:first').html().toLowerCase()
+        ord = (selector) -> $(selector).find('.ord-alph').html().toLowerCase()
         cmp = (a, b) -> if ord(a) > ord(b) then 1 else -1
     $('ul#tags').html((li for li in $('ul#tags > li').detach()).sort(cmp))
 
@@ -50,11 +50,10 @@ wrap_img = () ->
                   .after($('<p>').html($('<em>').html(alt)))
                   .wrap('<p>')
 
-list_toggle = (it) ->
-    parent = $(it).parent()
-    parent.find('i.fa:first').toggleClass('fa-plus-square')
-    parent.find('i.fa:first').toggleClass('fa-minus-square')
-    parent.find('ul:first').toggleClass('hidden')
+list_toggle = (li) ->
+    $(li).find('i.fa:first').toggleClass('fa-plus-square')
+    $(li).find('i.fa:first').toggleClass('fa-minus-square')
+    $(li).find('ul:first').toggleClass('hidden')
 
 check_change_mode = () ->
     for mode in ['xs', 'sm', 'md']
@@ -114,6 +113,7 @@ $(document).ready ->
         $(this).addClass('active')
         tag_sort(this)
 
+    $('.list-toggle').click().children('ul').click -> false
     $('.list-toggle').click (event) ->
         event.preventDefault()
         list_toggle(this)
