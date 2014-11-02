@@ -22,9 +22,9 @@ title: Blog Tags
         <span class="badge">{{ tag[1].size }}</span>
         <small><span class="glyphicon glyphicon-chevron-down"></span></small>
         <a class="list-toggle" href="#">{{ tag[0] }}</a>
-        <ul class="list-unstyled hidden">
+        <ul class="list-group hidden">
         {% for post in tag[1] %}
-          <li>
+          <li class="list-group-item">
             <span class="label label-info">
               {{ post.date | date_to_string }}
             </span>

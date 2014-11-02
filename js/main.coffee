@@ -30,7 +30,7 @@ tag_sort = (button) ->
     else
         ord = (selector) -> $(selector).find('a:first').html().toLowerCase()
         cmp = (a, b) -> if ord(a) > ord(b) then 1 else -1
-    $('ul#tags').html((li for li in $('ul#tags li.list-group-item')).sort(cmp))
+    $('ul#tags').html((li for li in $('ul#tags > li').detach()).sort(cmp))
 
 correct_fixed_position_width = () ->
     $('#leftbar').css('width', $('#leftbar-spacing').css('width'))
