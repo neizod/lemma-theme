@@ -1,35 +1,35 @@
 {% capture pathtype %}{{ page.path | split: '/' | first }}{% endcapture %}
 {% if pathtype == '_posts' %}
   {% if page.previous %}
-    {% capture prev_url %}{{ site.baseurl }}{{ page.previous.url }}{% endcapture %}
+    {% capture older %}{{ site.baseurl }}{{ page.previous.url }}{% endcapture %}
   {% endif %}
   {% if page.next %}
-    {% capture next_url %}{{ site.baseurl }}{{ page.next.url }}{% endcapture %}
+    {% capture newer %}{{ site.baseurl }}{{ page.next.url }}{% endcapture %}
   {% endif %}
 {% elsif pathtype == 'page' or page.url == '/index.html' %}
   {% if paginator.previous_page %}
-    {% capture prev_url %}{{ site.baseurl }}{{ paginator.previous_page_path }}{% endcapture %}
+    {% capture newer %}{{ site.baseurl }}{{ paginator.previous_page_path }}{% endcapture %}
   {% endif %}
   {% if paginator.next_page %}
-    {% capture next_url %}{{ site.baseurl }}{{ paginator.next_page_path }}{% endcapture %}
+    {% capture older %}{{ site.baseurl }}{{ paginator.next_page_path }}{% endcapture %}
   {% endif %}
 {% endif %}
 <div class="hidden-xs col-sm-12" id="roaming-nav-quick">
-  {% if next_url or prev_url %}
+  {% if older or newer %}
   <h3>Quick Navigation</h3>
   {% endif %}
   <div class="row-fluid" id="quick-navrow">
     <div class="col-xs-2 col-sm-6 text-left" id="roaming-nav-prev">
-      {% if prev_url %}
-      <a href="{{ prev_url }}" class="btn btn-default">
+      {% if newer %}
+      <a href="{{ newer }}" class="btn btn-default">
         &laquo;
         <span class="hidden-xs">Newer</span>
       </a>
       {% endif %}
     </div>
     <div class="col-xs-2 col-sm-6 text-right" id="roaming-nav-next">
-      {% if next_url %}
-      <a href="{{ next_url }}" class="btn btn-default">
+      {% if older %}
+      <a href="{{ older }}" class="btn btn-default">
         <span class="hidden-xs">Older</span>
         &raquo;
       </a>
