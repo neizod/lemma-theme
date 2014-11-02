@@ -12,9 +12,11 @@ title: Blog Archives
   {% capture prev_year %}{{ post.previous.date | date: "%Y" }}{% endcapture %}
 
   {% if year != next_year %}
-    <li class="list-group-item list-toggle">
-      <i class="fa fa-plus-square"></i>
-      {{ post.date | date: "%Y" }}
+    <li class="list-group-item">
+      <a class="list-toggle" href="#">
+        <i class="fa fa-plus-square"></i>
+        {{ post.date | date: "%Y" }}
+      </a>
       <ul class="list-group hidden">
   {% else %}
     {% capture year_count %}{{ year_count | plus: 1 }}{% endcapture %}
@@ -25,9 +27,11 @@ title: Blog Archives
   {% capture prev_month %}{{ post.previous.date | date: "%m%Y" }}{% endcapture %}
 
   {% if month != next_month or forloop.first %}
-    <li class="list-group-item list-toggle">
-      <i class="fa fa-plus-square"></i>
-      {{ post.date | date: "%B" }}
+    <li class="list-group-item">
+      <a class="list-toggle" href="#">
+        <i class="fa fa-plus-square"></i>
+        {{ post.date | date: "%B" }}
+      </a>
       <ul class="list-group hidden">
   {% else %}
     {% capture month_count %}{{ month_count | plus: 1 }}{% endcapture %}

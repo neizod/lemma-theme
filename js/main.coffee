@@ -50,10 +50,11 @@ wrap_img = () ->
                   .after($('<p>').html($('<em>').html(alt)))
                   .wrap('<p>')
 
-list_toggle = (li) ->
-    $(li).find('i.fa:first').toggleClass('fa-plus-square')
-    $(li).find('i.fa:first').toggleClass('fa-minus-square')
-    $(li).find('ul:first').toggleClass('hidden')
+list_toggle = (a) ->
+    li = $(a).parent()
+    li.find('i.fa:first').toggleClass('fa-plus-square')
+    li.find('i.fa:first').toggleClass('fa-minus-square')
+    li.find('ul:first').toggleClass('hidden')
 
 check_change_mode = () ->
     for mode in ['xs', 'sm', 'md']

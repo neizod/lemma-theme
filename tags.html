@@ -18,10 +18,12 @@ title: Blog Tags
   <div class="col-xs-12">
     <ul class="list-group" id="tags">
     {% for tag in site.tags %}
-      <li class="list-group-item list-toggle">
+      <li class="list-group-item">
+        <a class="list-toggle" href="#">
+          <i class="fa fa-plus-square"></i>
+          <span class="ord-alph">{{ tag[0] }}</span>
+        </a>
         <span class="badge ord-freq">{{ tag[1].size }}</span>
-        <i class="fa fa-plus-square"></i>
-        <span class="ord-alph">{{ tag[0] }}</span>
         <ul class="list-group hidden">
         {% for post in tag[1] %}
           <li class="list-group-item">
