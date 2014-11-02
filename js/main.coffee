@@ -93,8 +93,8 @@ make_roaming_menu = (mode) ->
 make_spacing = (mode) ->
     if mode == 'xs'
         $('#leftrow').toggleClass('hidden-xs') if $('#leftrow').is(':visible')
-        $('#leftbar-spacing').height($('#leftbar').height())
-        $('#rightbar-spacing').height($('#rightbar').height())
+        $('#leftbar-spacing').height($('#leftbar').outerHeight())
+        $('#rightbar-spacing').height($('#rightbar').outerHeight())
 
 
 $(document).ready ->
