@@ -13,8 +13,6 @@ a.emphasis:hover
     background: rgba(0,0,0,0.1)
 
 div.spacing
-    color: rgba(255,255,255,0)
-    background: rgba(255,255,255,0)
     z-index: -1
 
 div.figure
@@ -33,15 +31,10 @@ ul ul
 
 
 html, body, div.container
-    background: #222
     height: 100%
 
 #main-row
-    background: #fff
     min-height: 100%
-
-#leftbar, #rightbar
-    background: #ddd
 
 #leftrow ul li h4
     line-height: 1.5
@@ -54,6 +47,7 @@ html, body, div.container
     #leftbar, #rightbar
         position: fixed
         z-index: $zindex-navbar
+        background: rgba(240,240,240,0.9)
     #rightbar
         bottom: 0
         padding: $padding-base-vertical $padding-base-horizontal
