@@ -4,9 +4,17 @@ layout: default
 
 <h1>{{ page.title }}</h1>
 <p>
-  <span class="label label-info">{{ page.date | date_to_string }}</span>
+  <span class="label label-info">
+    <i class="fa fa-fw fa-calendar-o"></i>
+    {{ page.date | date_to_string }}
+  </span>
+  &nbsp;
   {% for tag in page.tags %}
-    <span class="label label-default">{{ tag }}</span>
+    <span class="label label-default">
+      <i class="fa fa-fw fa-tag"></i>
+      {{ tag }}
+    </span>
+    {% unless forloop.last %}&nbsp;{% endunless %}
   {% endfor %}
 </p>
 <hr />
