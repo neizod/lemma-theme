@@ -7,6 +7,16 @@
 a, a:hover
     text-decoration: none
 
+a.emphasis
+    display: block
+a.emphasis:hover
+    background: rgba(0,0,0,0.1)
+
+a .hover-reveal
+    display: none
+a:hover .hover-reveal
+    display: inline
+
 div.spacing
     color: rgba(255,255,255,0)
     background: rgba(255,255,255,0)
@@ -38,19 +48,11 @@ html, body, div.container
 #leftbar, #rightbar
     background: #ddd
 
-=empasis-a
-    a
-        display: block
-    a:hover
-        background: rgba(0,0,0,0.1)
-
 #leftrow ul li h4
     line-height: 1.5
-    +empasis-a
 
 #recent-list li
     line-height: 2.0
-    +empasis-a
 
 
 @media (max-width: $screen-xs-max)

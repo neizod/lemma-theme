@@ -3,17 +3,23 @@
   <ul class="list-unstyled">
     <li>
       <h4>
-        <a href="{{ site.baseurl }}/archives.html">
+        <a class="emphasis" href="{{ site.baseurl }}/archives.html">
           <i class="fa fa-fw fa-archive"></i>
           Archives
+          <span class="hover-reveal pull-right">
+            {{ site.posts | size }}
+          </span>
         </a>
       </h4>
     </li>
     <li>
       <h4>
-        <a href="{{ site.baseurl }}/tags.html">
+        <a class="emphasis" href="{{ site.baseurl }}/tags.html">
           <i class="fa fa-fw fa-tags"></i>
           Tags
+          <span class="hover-reveal pull-right">
+            {{ site.tags | size }}
+          </span>
         </a>
       </h4>
     </li>
@@ -24,15 +30,18 @@
   <ul class="list-unstyled">
     <li>
       <h4>
-        <a href="{{ site.baseurl }}/projects.html">
+        <a class="emphasis" href="{{ site.baseurl }}/projects.html">
           <i class="fa fa-fw fa-flask"></i>
           Projects
+          <span class="hover-reveal pull-right">
+            {{ site.data.projects | size }}
+          </span>
         </a>
       </h4>
     </li>
     <li>
       <h4>
-        <a href="{{ site.baseurl }}/about.html">
+        <a class="emphasis" href="{{ site.baseurl }}/about.html">
           <i class="fa fa-fw fa-user"></i>
           About Me
         </a>
