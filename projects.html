@@ -30,10 +30,31 @@ title: Projects
     </div>
   </div>
   <div class="col-xs-8">
-    {% if project.date %}
-      <p><i class="fa fa-calendar-o"></i> {{ project.date }}</p>
-    {% endif %}
-    <p>{{ project.desc }}</p>
+    <p>
+      {% if project.date %}
+        <span class="label label-info">
+          <i class="fa fa-calendar-o"></i>
+          {{ project.date }}
+        </span>
+        {% if project.languages %}&nbsp;{% endif %}
+      {% endif %}
+      {% for language in project.languages %}
+        <span class="label label-default">
+          <i class="fa fa-fw fa-language"></i>
+          {{ language }}
+        </span>
+        {% unless forloop.last %}&nbsp;{% endunless %}
+        {% if project.frameworks %}&nbsp;{% endif %}
+      {% endfor %}
+      {% for framework in project.frameworks %}
+        <span class="label label-default">
+          <i class="fa fa-fw fa-wrench"></i>
+          {{ framework }}
+        </span>
+        {% unless forloop.last %}&nbsp;{% endunless %}
+      {% endfor %}
+    </p>
+    {{ project.desc | markdownify }}
   </div>
   <div class="clearfix"></div>
   {% unless forloop.last %}
