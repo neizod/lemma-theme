@@ -12,7 +12,7 @@ title: Projects
       {% else %}
         {% capture thumbnail %}{{ project.thumbnail | prepend: site.baseurl }}{% endcapture %}
       {% endif %}
-      <img class="img-responsive img-rounded" src="{{ thumbnail }}">
+      <img class="img-responsive img-rounded img-margin" src="{{ thumbnail }}">
     {% else %}
       <h1 class="poorman-thumbnail"
           style="background: {% cycle 'c': "#48c", "#fa4", "#5b5", "#d54" %};">
@@ -33,7 +33,8 @@ title: Projects
     <p>{{ project.desc }}</p>
   </div>
   {% unless forloop.last %}
-  <div class="clearfix"><hr /></div>
+  <div class="clearfix"></div>
+  <div class="col-xs-12"><hr /></div>
   {% endunless %}
 {% endfor %}
 </div>
