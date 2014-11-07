@@ -4,7 +4,15 @@ title: Projects
 
 <div class="row-fluid">
 {% for project in site.data.projects %}
-  <div class="col-xs-12 col-sm-5">
+  <div class="col-xs-12">
+    {% if project.url %}
+      <h2><a href="{{ project.url }}">{{ project.name }}</a></h2>
+    {% else %}
+      <h2>{{ project.name }}</h2>
+    {% endif %}
+  </div>
+  <div class="clearfix"></div>
+  <div class="col-xs-4">
     <div class="text-center">
     {% if project.thumbnail %}
       {% if project.thumbnail contains "//" %}
@@ -12,7 +20,7 @@ title: Projects
       {% else %}
         {% capture thumbnail %}{{ project.thumbnail | prepend: site.baseurl }}{% endcapture %}
       {% endif %}
-      <img class="img-responsive img-rounded img-margin" src="{{ thumbnail }}">
+      <img class="img-responsive img-rounded" src="{{ thumbnail }}">
     {% else %}
       <h1 class="poorman-thumbnail"
           style="background: {% cycle 'c': "#48c", "#fa4", "#5b5", "#d54" %};">
@@ -21,20 +29,16 @@ title: Projects
     {% endif %}
     </div>
   </div>
-  <div class="col-xs-12 col-sm-7">
-    {% if project.url %}
-      <h2><a href="{{ project.url }}">{{ project.name }}</a></h2>
-    {% else %}
-      <h2>{{ project.name }}</h2>
-    {% endif %}
+  <div class="col-xs-8">
     {% if project.date %}
-      <p><small><i class="fa fa-calendar-o"></i></small> {{ project.date }}</p>
+      <p><i class="fa fa-calendar-o"></i> {{ project.date }}</p>
     {% endif %}
     <p>{{ project.desc }}</p>
   </div>
-  {% unless forloop.last %}
   <div class="clearfix"></div>
+  {% unless forloop.last %}
   <div class="col-xs-12"><hr /></div>
   {% endunless %}
 {% endfor %}
 </div>
+<hr />
