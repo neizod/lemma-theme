@@ -1,9 +1,9 @@
 <div class="hidden-xs hidden-sm col-md-12" id="roaming-recent">
   <h3>Recent Posts</h3>
-  <ul class="list-unstyled" id="recent-list">
+  <ul class="nav nav-pills nav-stacked" id="recent-list">
   {% for post in site.posts limit: 3 %}
     <li>
-      <a class="emphasis" href="{{ site.baseurl }}{{ post.url }}">
+      <a href="{{ site.baseurl }}{{ post.url }}">
         <span class="label label-info" data-date="{{ post.date }}">
           {{ post.date | date_to_string }}
         </span>
