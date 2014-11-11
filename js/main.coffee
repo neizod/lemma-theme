@@ -72,23 +72,23 @@ monitor_device_mode = () ->
 
 make_roaming_menu = (mode) ->
     if mode == 'xs'
-        $('#roaming-nav-quick').detach().appendTo('#leftrow')
-        $('#roaming-share').detach().appendTo('#rightrow')
+        $('#roaming-pager').detach().appendTo('#leftrow')
+        $('#roaming-share').detach().appendTo('#footer')
         $('#roaming-attribution').detach().appendTo('#leftrow')
-        $('#roaming-nav-prev').detach().prependTo('#rightrow')
-        $('#roaming-nav-next').detach().appendTo('#rightrow')
+        $('#roaming-pager-newer').detach().appendTo('#mini-pager-newer')
+        $('#roaming-pager-older').detach().appendTo('#mini-pager-older')
     else if mode == 'sm'
-        $('#roaming-nav-quick').detach().appendTo('#leftrow')
+        $('#roaming-pager').detach().appendTo('#leftrow')
         $('#roaming-share').detach().appendTo('#leftrow')
         $('#roaming-attribution').detach().appendTo('#leftrow')
-        $('#roaming-nav-prev').detach().prependTo('#quick-navrow')
-        $('#roaming-nav-next').detach().appendTo('#quick-navrow')
+        $('#roaming-pager-newer').detach().appendTo('#full-pager')
+        $('#roaming-pager-older').detach().appendTo('#full-pager')
     else
-        $('#roaming-nav-quick').detach().appendTo('#rightrow')
+        $('#roaming-pager').detach().appendTo('#rightrow')
         $('#roaming-share').detach().appendTo('#rightrow')
         $('#roaming-attribution').detach().appendTo('#rightrow')
-        $('#roaming-nav-prev').detach().prependTo('#quick-navrow')
-        $('#roaming-nav-next').detach().appendTo('#quick-navrow')
+        $('#roaming-pager-newer').detach().appendTo('#full-pager')
+        $('#roaming-pager-older').detach().appendTo('#full-pager')
 
 make_spacing = (mode) ->
     if mode == 'xs'

@@ -14,26 +14,25 @@
     {% capture older %}{{ site.baseurl }}{{ paginator.next_page_path }}{% endcapture %}
   {% endif %}
 {% endif %}
-<div class="hidden-xs col-sm-12" id="roaming-nav-quick">
+
+<div class="hidden-xs col-sm-12" id="roaming-pager">
   {% if older or newer %}
-  <h3>Quick Navigation</h3>
+    <h3>Quick Navigation</h3>
+    <ul class="pager" id="full-pager">
+      <li id="roaming-pager-newer">
+        {% capture disabled %}{% unless newer %}disabled{% endunless %}{% endcapture %}
+        <a href="{{ newer }}" class="btn btn-default {{ disabled }}">
+          <span>&laquo;</span>
+          <span class="hidden-xs">Newer</span>
+        </a>
+      </li>
+      <li id="roaming-pager-older">
+        {% capture disabled %}{% unless older %}disabled{% endunless %}{% endcapture %}
+        <a href="{{ older }}" class="btn btn-default {{ disabled }}">
+          <span class="hidden-xs">Older</span>
+          <span>&raquo;</span>
+        </a>
+      </li>
+    </ul>
   {% endif %}
-  <div class="row-fluid" id="quick-navrow">
-    <div class="col-xs-2 col-sm-6 text-left" id="roaming-nav-prev">
-      {% if newer %}
-      <a href="{{ newer }}" class="btn btn-default">
-        &laquo;
-        <span class="hidden-xs">Newer</span>
-      </a>
-      {% endif %}
-    </div>
-    <div class="col-xs-2 col-sm-6 text-right" id="roaming-nav-next">
-      {% if older %}
-      <a href="{{ older }}" class="btn btn-default">
-        <span class="hidden-xs">Older</span>
-        &raquo;
-      </a>
-      {% endif %}
-    </div>
-  </div>
 </div>
