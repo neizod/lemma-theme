@@ -1,0 +1,17 @@
+<a href="{{ site.baseurl }}/index.html">{{ site.name }}</a>
+<small class="visible-xs" id="location">
+  {% if page.url == "/archives.html" %}
+    / <i class="fa fa-fw fa-archive"></i>
+  {% elsif page.url == "/tags.html" %}
+    / <i class="fa fa-fw fa-tags"></i>
+  {% elsif page.url == "/projects.html" %}
+    / <i class="fa fa-fw fa-flask"></i>
+  {% elsif page.url == "/about.html" %}
+    / <i class="fa fa-fw fa-user"></i>
+  {% endif %}
+</small>
+<div class="button-group visible-xs pull-right">
+  <button type="button" class="btn btn-default" id="menu-toggle">
+    <span class="fa fa-list-alt"></span>
+  </button>
+</div>

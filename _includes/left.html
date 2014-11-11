@@ -1,9 +1,6 @@
 <div class="col-xs-12 col-sm-4 col-md-3" id="leftbar">
   <h2>
-    <a href="{{ site.baseurl }}/index.html">{{ site.name }}</a>
-    <button type="button" class="btn btn-default visible-xs pull-right" id="menu-toggle">
-      <span class="fa fa-list-alt"></span>
-    </button>
+    {% include header.html %}
   </h2>
   <div class="row-fluid" id="leftrow">
     {% include menubar.html %}

@@ -92,7 +92,7 @@ make_roaming_menu = (mode) ->
 
 make_spacing = (mode) ->
     if mode == 'xs'
-        $('#leftrow').toggleClass('hidden-xs') if $('#leftrow').is(':visible')
+        $('#menu-toggle').click() if $('#leftrow').is(':visible')
         $('#leftbar-spacing').height($('#leftbar').outerHeight())
         $('#rightbar-spacing').height($('#rightbar').outerHeight())
 
@@ -122,6 +122,7 @@ $(document).ready ->
 
     $('#menu-toggle').click (event) ->
         event.preventDefault()
+        $(this).toggleClass('active')
         $('#leftrow').toggleClass('hidden-xs')
 
     $(window).resize ->
