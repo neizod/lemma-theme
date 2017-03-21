@@ -1,17 +1,17 @@
-<a href="{{ site.baseurl }}/index.html">{{ site.name }}</a>
-<small class="visible-xs-inline" id="location">
-  {% if page.url == "/archives.html" %}
-    / <i class="fa fa-fw fa-archive"></i>
-  {% elsif page.url == "/tags.html" %}
-    / <i class="fa fa-fw fa-tags"></i>
-  {% elsif page.url == "/projects.html" %}
-    / <i class="fa fa-fw fa-flask"></i>
-  {% elsif page.url == "/about.html" %}
-    / <i class="fa fa-fw fa-user"></i>
-  {% endif %}
-</small>
-<div class="button-group visible-xs pull-right">
-  <button type="button" class="btn btn-default" id="menu-toggle">
-    <span class="fa fa-list-alt"></span>
-  </button>
-</div>
+<header>
+    <nav>
+        <div class="nav-wrapper">
+            <div class="container"><a href="#" data-activates="nav-bar" class="button-collapse"><i class="material-icons">menu</i></a></div>
+            <ul class="right hide-on-med-and-down ">
+                {% for link in site.navigation %}
+                {% if page.url == link.url %}<li class="active">{% else %}<li>{% endif %}<a href="{{ link.url | prepend: site.baseurl }}">{{ link.text }}</a></li>
+                {% endfor %}
+            </ul>
+            <ul class="side-nav" id="nav-bar">
+                {% for link in site.navigation %}
+                {% if page.url == link.url %}<li class="active">{% else %}<li>{% endif %}<a href="{{ link.url | prepend: site.baseurl }}">{{ link.text }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </nav>
+</header>
