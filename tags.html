@@ -1,41 +1,11 @@
 ---
-title: Blog Tags
+layout: base
 ---
-
-<div class="row-fluid">
-  <div class="col-xs-12 text-center">
-    <p>
-      <div class="btn-group">
-        <button type="button" class="btn btn-default tag-sort" id="sort-alph">
-          sort by alphabet
-        </button>
-        <button type="button" class="btn btn-default tag-sort" id="sort-freq">
-          sort by frequency
-        </button>
-      </div>
-    </p>
-  </div>
-  <div class="col-xs-12">
-    <ul class="list-group" id="tags">
-    {% for tag in site.tags %}
-      <li class="list-group-item">
-        <a class="list-toggle" href="#">
-          <i class="fa fa-plus-square"></i>
-          <span class="ord-alph">{{ tag[0] }}</span>
-        </a>
-        <span class="badge ord-freq">{{ tag[1].size }}</span>
-        <ul class="list-group hidden">
-        {% for post in tag[1] %}
-          <li class="list-group-item">
-            <span class="label label-info">
-              {{ post.date | date_to_string }}
-            </span>
-            <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
-          </li>
-        {% endfor %}
-        </ul>
-      </li>
-    {% endfor %}
-    </ul>
-  </div>
+<div class="row">
+{% for keypair in site.tags %}
+{% assign tag = keypair | first%}
+{% if tag != site.sticky %}
+<a href="{{ tag | prepend: '/tags/' | prepend: site.baseurl }}"><div class="chip waves-effect waves-red">{{ tag }}</div></a>
+{% endif %}
+{% endfor %}
 </div>

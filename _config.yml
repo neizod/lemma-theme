@@ -1,52 +1,44 @@
-# user variables, change this to make custom site.
-
-name: Lemma
-desc: Yet another simple theme for Jekyll.
-author:
-  name: neizod
-  avatar: //gravatar.com/avatar/daa1cc36ed2ab0d13045d5cd2431cde9?s=320
-  profile: |
-    Just another ordinary grad student in computer engineering.
-    I'm interest in programming language, algorithm, and mathematics.
-
-    I live in Chiang Mai or Bangkok, Thailand.
-    And you may found me around BarCamp event ;D
-  socials:
-    facebook:
-    twitter: //twitter.com/neizod
-    google-plus:
-    github: //github.com/neizod
-    stack-overflow: //stackoverflow.com/users/889578/neizod
-    instagram:
-    pinterest:
-    steam: //steamcommunity.com/id/neizod/
-license: MIT License
-
-
-# theme variables, change this to make site looks best.
-baseurl: /lemma-theme
-paginate: 2
-
-
-# system variables, do not change unless you knew what's it does.
-paginate_path: page/:num
-highlighter: pygments
-markdown: redcarpet
-redcarpet:
-  extensions: ["tables"]
-
-defaults:
-  - scope:
-      path: ""
-      type: "pages"
-    values:
-      layout: "default"
-  - scope:
-      path: ""
-      type: "posts"
-    values:
-      layout: "post"
+title: Your awesome title
+email: your-email@domain.com
+description: description
+baseurl: /Jekyll-Avalon
+url: http://joshuaavalon.github.io
+twitter_username: joshuaavalon
+github_username:  joshuaavalon
 
 sass:
-  sass_dir: _sass
   style: compressed
+
+paginate: 12
+paginate_path: "/:num/"
+
+author_img_s: /img/author_s.png
+author_img: /img/author.png
+
+navigation:
+  - text: Home
+    url: /
+  - text: Categories
+    url: /categories.html
+  - text: Tags
+    url: /tags.html
+
+read_more: Read More
+env: production
+minify_html: false # Set to true only when it is production. Increase significant build time.
+
+# Build settings
+markdown: kramdown
+
+sticky: sticky # Tag used for sticky post
+sticky_count: 3 # Number of sticky post shown
+
+gems:
+  - jekyll-paginate
+  - jekyll-feed
+  
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - LICENSE

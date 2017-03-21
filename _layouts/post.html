@@ -1,21 +1,22 @@
 ---
-layout: default
+layout: base
 ---
-
-<h1>{{ page.title }}</h1>
-<p>
-  <span class="label label-info">
-    <i class="fa fa-fw fa-calendar-o"></i>
-    {{ page.date | date_to_string }}
-  </span>
-  &nbsp;
-  {% for tag in page.tags %}
-    <span class="label label-default">
-      <i class="fa fa-fw fa-tag"></i>
-      {{ tag }}
-    </span>
-    {% unless forloop.last %}&nbsp;{% endunless %}
-  {% endfor %}
-</p>
-<hr />
+{% if page.cover %}
+<div class="row">
+{% img page.cover cover %}
+</div>
+{% endif %}
+<div class="row">
+<h2>{{ page.title }}</h2>
+<div class="valign-wrapper">
+<div class="author"><img src="{{ site.author_img | prepend: site.baseurl }}" class="circle responsive-img"></div> {% for category in page.categories %}<h5><a href="{{ category | prepend: '/categories/' | prepend: site.baseurl }}">{{ category }}</a>{% unless forloop.last%}, {% endunless %}{% endfor%} - {{ page.date | date: "%m/%d/%Y" }}</h5>
+</div>
+    {% for tag in page.tags %}
+    {% if tag != site.sticky %}
+    <a href="{{ tag | prepend: '/tags/' | prepend: site.baseurl }}"><div class="chip waves-effect waves-red">{{ tag }}</div></a>
+    {% endif %}
+    {% endfor %}
+</div>
+<div class="row">
 {{ content }}
+</div>
