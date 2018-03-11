@@ -1,6 +1,6 @@
 ---
-title: Hello, world!
-tags: [Announcement, Test]
+layout: post
+title: You're up and running!
 ---
 
 Treditional programmer used to, and still do, print this sentence to test whether their program work or not. So why not test again :P
