@@ -24,7 +24,8 @@ license: MIT License
 
 
 # theme variables, change this to make site looks best.
-baseurl: /lemma-theme
+url : "https://sunsmiling.github.io"
+baseurl: ""
 paginate: 2
 
 
